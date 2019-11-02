@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<style>
+  .container{
+    padding: 100px 100px;
+    display: flex;
+    justify-content: center;
+    background-position: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.display{
+  display: grid;
+  display: flex;
+  grid-template-columns: 1 1;
+  grid-template-rows: auto;
+  justify-items: center;
+  grid-template-areas: 
+    "me others others others";
+  background-position: center;
+}
+.me {
+  grid-area: me;
+  font-size: 22px;
+}
+.others {
+  grid-area: others;
+  font-size: 24px;
+}
+body {
+  height: 100%;
+  flex-stretch: auto;
+}
+.signin { 
+    text-align: center;
+/*    padding-top: 200px; */
+}
+.signup {
+    text-align: center;
+/*    padding-top: 300px; */
+}
+.login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: baseline;
+  font-size: 4;
+}
+#submit{
+  height: 100px;
+  width: 300px;
+}
+#img {
+  height: 100px;
+}
+#logo {
+  height: 100px
+}
+#img2 {
+  height: 250px;
+}
+.info {
+  font-size: 200%;
+  justify-content: center;
+  text-align: center;
+  vertical-align: baseline;
+  margin-bottom: 30px;
+}
+mark {
+  background-color: black;
+  color: white;
+  font-size: 15px;
+}
+</style>
+<html>
+    <link rel="stylesheet" href="css/style.css">
+<body>
+    <style>
+       body{
+           background-image: url("https://wallpaperaccess.com/full/8740.jpg");
+           background-repeat: no-repeat;
+           background-size:cover;
+       }
+    </style>
+        <div class="container">
+            <header>
+                        <img id="img2" src="https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/2375/cache/2019/10/spy-clipart-9-e1538678193587/2613749646.png">  
+                    <form class= "signin" action='/make_group'>
+                        <button type="submit" ><font size="10"><strong>Create a Nightwatch</strong></font></button>
+                    </form>
+                        <img id="img" src="">
+                    <form class= "signup" action='/all_nigh_watchers'>
+                        <button type="submit" ><font size="10"><strong>Display Nightwatches</strong></font></button>
+                    </form>
+            </header>
+        </div>
+</body>
+</html>
