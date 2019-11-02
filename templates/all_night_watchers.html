@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    
+    <h1>All the night watches</h1>
+    
+    <body>
+    {% for nigh_watchers in all_night_watchers %}
+    <h2>{{nigh_watchers.contact}}</h2>
+    <h2>{{nigh_watchers.time}}</h2>
+    <h2>{{nigh_watchers.route}}</h2>
+    <h2>{{nigh_watchers.number_of_people}}</h2>
+	{% endfor %}
+    </body>
+</html>
