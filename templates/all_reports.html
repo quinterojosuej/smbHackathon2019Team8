@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <h1>Reports</h1>
+    <body>
+        {% for report in all_reports %}
+        <h1>{{report.name}}</h1>
+        <h1>{{report.street}}</h1>
+        <h1>{{report.time}}</h1>
+        <h1>{{report.date}}</h1>
+        <h1>{{report.description}}</h1>
+        <h1>-------------------------</h1>
+        {% endfor %}
+    </body>
+    
+</html>

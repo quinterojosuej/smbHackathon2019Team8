@@ -1,8 +1,8 @@
 import webapp2
 import jinja2
 import os
-from models import Meme
 from models import NightGroup
+from models import ReportPost
 
 the_jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -14,7 +14,15 @@ def make_group(in_time, in_contact, in_route, in_number_of_people):
     group = NightGroup(contact = in_contact, time = in_time, number_of_people = in_number_of_people, route = in_route)
     group_key = group.put()
     print("--------------------------------------------------------------------"*2)
+    print(group_key)
     return group_key
+    
+def make_report(in_name, in_street, in_time, in_date, in_description):
+    report = ReportPost(name = in_name, street = in_street, time = in_time, date = in_date, description = in_description)
+    report_key = report.put()
+    print("########################################################################")
+    print(report_key)
+    return 
     
 #*******************************************************************************************        
 
@@ -53,20 +61,89 @@ class AllNightWatchers(webapp2.RequestHandler):
         all_night_watchers = NightGroup.query().fetch()
         
         the_variable_dict = {
-            "all_night_watchers": all_night_watchers
+            "all_night_watchers": all_night_watchers,
         }
         all_night_watchers_template = the_jinja_env.get_template('templates/all_night_watchers.html')
         self.response.write(all_night_watchers_template.render(the_variable_dict))
+       
+       
+class MakingReport(webapp2.RequestHandler):
+    def get(self):
+        making_report_template = the_jinja_env.get_template('templates/making_report.html')
+        self.response.write(making_report_template.render())
+    
+    def post(self):
+        made_report_template = the_jinja_env.get_template('templates/display_report.html')
+        in_name = self.request.get('name')
+        in_street = self.request.get('street')
+        in_time = self.request.get('time')
+        in_date = self.request.get('date')
+        in_description = self.request.get('description')
         
-
-# class NightwatchEdit(webapp2.RequestHandler):
-#     def get(self):
         
+        key = make_report(in_name, in_street, in_time, in_date, in_description)
+        
+        var_dict = {
+            "name": in_name,
+            "street":in_street,
+            "time": in_time,
+            "date": in_date,
+            "description":in_description,
+            "key": key
+        }
+        
+        self.response.write(made_report_template.render(var_dict))
 
+class DisplayAllReports(webapp2.RequestHandler):
+    def get(self):
+        print("*****************************************************")
+        all_reports = ReportPost.query().fetch()
+        report = all_reports[0]
+        print(report)
+        the_id = report.key.id()
+        the_instance = ReportPost.get_by_id(the_id)
+        print("THIS IS THE INSTANCE")
+        print(the_instance)
+        
+        the_variable_dict = {
+            "all_reports": all_reports
+        }
+        all_reports_template = the_jinja_env.get_template('templates/all_reports.html')
+        self.response.write(all_reports_template.render(the_variable_dict))
+        
+################################################
+class NightwatchEdit(webapp2.RequestHandler):
+    def get(self):
+        get_edit_template = the_jinja_env.get_template("templates/get_edit.html")
+        self.response.write(get_edit_template.render())
+        
+class DoNightEdit(webapp2.RequestHandler):
+    def post(self):
+        in_key = self.request.get('input-key')
+        in_to_change = self.request.get('to_change')
+        in_new_text = self.request.get('new_text')
+        
+        instance = NightGroup.get_by_id(int(in_key))
+        print("THIS IS AN INSTANCE")
+        print(instance)
+        print(in_key)
+        instance.in_to_change=in_new_text
+        instance.put()
+        
+        get_editing_template = the_jinja_env.get_template("templates/doing_edit.html")
+        self.response.write(get_editing_template.render())
+        
+###########################################
+        
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/make_group', MakeGroup),
-    ('/all_nigh_watchers',AllNightWatchers)
+    ('/all_nigh_watchers',AllNightWatchers),
+    ('/making_report',MakingReport),
+    ('/show_report',DisplayAllReports),
+    
+    ('/night_watch_edit',NightwatchEdit),
+    ('/night_watch_edited',DoNightEdit)
     
 ], debug=True)
 

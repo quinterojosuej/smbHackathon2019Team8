@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<style>
+/*styles those whose input is text*/
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+/*styles those whose input is time*/
+input[type=time], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+/*styles those whose input is date*/
+input[type=date], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+/*styles submit button*/
+input[type=submit] {
+  width: 100%;
+  background-color: #1FD2D2 ;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/*color changed in submit button when hovered*/
+input[type=submit]:hover {
+  background-color: #22B2B2;
+}
+/*sets teal background */
+div { 
+  border-radius: 5px;
+  background-color: #CCF9F9;
+  padding: 20px;
+}
+img{
+  width: 100px;
+  height: 100px;
+}
+</style>
+<body>
+  <a href="/">
+    <img align = "right" src="https://smobi.co.uk/wp-content/uploads/2018/06/home-button-repairs-mobile-phones.png">
+  </a>
+<div>
+  <form method=POST action="/making_report">
+   <fieldset>
+    <legend>Report a Problem:</legend>
+    Name<input type="text" name = "name" placeholder="Your name...">
+    Street<input type="text" name="stree" placeholder="Ex. 1234 Unicorn Street">
+    Time<input type="time" name = "time">
+    When<input type="date" name = "date">
+    What's the crime?<br>
+    <textarea rows="4" cols="50" name="description" placeholder="Enter text here... "></textarea>
+   </fieldset>
+   <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>

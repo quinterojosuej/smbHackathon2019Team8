@@ -82,6 +82,10 @@ mark {
            background-repeat: no-repeat;
            background-size:cover;
        }
+       img{
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+       }
     </style>
         <div class="container">
             <header>
@@ -92,6 +96,10 @@ mark {
                         <img id="img" src="https://i.imgur.com/CRxAx5L.png">
                     <form class= "signup" action='/all_nigh_watchers'>
                         <button type="submit" ><font size="10"><strong>Display Nightwatches</strong></font></button>
+                    </form>
+                      <img id="img" src="https://img.icons8.com/cotton/2x/sign-document.png">
+                    <form class= "signup" action='/making_report'>
+                        <button type="submit" ><font size="10"><strong>Make Report</strong></font></button>
                     </form>
             </header>
         </div>
