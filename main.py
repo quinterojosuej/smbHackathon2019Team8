@@ -59,6 +59,10 @@ class AllNightWatchers(webapp2.RequestHandler):
         self.response.write(all_night_watchers_template.render(the_variable_dict))
         
 
+# class NightwatchEdit(webapp2.RequestHandler):
+#     def get(self):
+        
+
 app = webapp2.WSGIApplication([
     ('/', HomePage),
     ('/make_group', MakeGroup),

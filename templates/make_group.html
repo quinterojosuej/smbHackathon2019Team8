@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html>
   <head>
@@ -22,3 +23,52 @@
     <input type ="submit" value="Go!">
   </body>
 </html>
+-->
+
+
+<!DOCTYPE html>
+
+<style type="text/css">
+body{
+  background-image: url("https://www.tokkoro.com/picsup/2911736-photography-architecture-city-cityscape-clouds-reflection-sunset-sun-landscape___landscape-nature-wallpapers.jpg");
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px
+}
+.button1{
+  font-family: 'Courier New', Courier, monospace;
+  background-color: rgb(204, 76, 72); 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+}
+
+</style>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Make A Group</title>
+    <h1>Make A Group</h1>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <form method=POST action="/make_group">
+      <fieldset class="contactInfo">
+        <legend> Input Group Information </legend>
+          Contact Info: <input type="text" name="input_contact">
+          <br>
+          Input Time: <input type="text" name="input_time">
+          <br>
+          Input Route: <input type="text" name="input_route">
+          <br>
+          Number of People: <input type="text" name="input_number_of_people">
+      </fieldset>
+    <input class = "button1" type ="submit" value="Go!">
+</form>
+  </body>
+</html>
+
