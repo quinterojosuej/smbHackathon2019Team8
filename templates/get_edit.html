@@ -1,21 +1,66 @@
+<style type="text/css">
+img{
+  width: 100px;
+  height: 100px;
+}
+input[type=text], select
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit]
+{
+    width: 100%;
+    background-color: #FF7979;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=submit]:hover
+{
+    background-color: #D53B3B;
+}
+form
+{
+    border-radius: 5px;
+    background-color: #FFC6C6;
+    padding: 20px;
+}
+body
+{
+    background-image: url("https://data.whicdn.com/images/327124051/original.gif?t=1550971622");
+}
+</style>
+
 <!DOCTYPE html>
 <html>
     
-    <body>    
+    <body>
+        <a href="/">
+            <img align = "right" src="https://smobi.co.uk/wp-content/uploads/2018/06/home-button-repairs-mobile-phones.png">
+      </a>    
     <form method=POST action="/night_watch_edited">
         <fieldset>
-            <legend>Edit</legend>
-            <h1>For option</h1>
-                <select name="to_change">
+            <legend><h2>Edit</h2></legend>
+            <h3>For option</h3>
+                <select input="text" name="to_change">
                     <option value = "contact">Contact Information</option>
                     <option value = "time">Time</option>
                     <option value = "route">Route</option>
                     <option value = "number_of_people">Number Of People</option>
                 </select>
-            <h1>New Text</h1>
+            <h3>New Text</h3>
             
             <input type="text" name="new_text">
-            <h1>Key</h1>
+            <h3>Key</h3>
             <input type="text" name="input-key">
         
             <input class = "button1" type ="submit" value="Go!">

@@ -123,15 +123,46 @@ class DoNightEdit(webapp2.RequestHandler):
         in_to_change = self.request.get('to_change')
         in_new_text = self.request.get('new_text')
         
-        instance = NightGroup.get_by_id(int(in_key))
-        print("THIS IS AN INSTANCE")
-        print(instance)
-        print(in_key)
-        instance.in_to_change=in_new_text
-        instance.put()
+        print(in_to_change)
+        print("*************************************************")
+        
+        some_string = "Successfully edited"
+        if(in_key.isnumeric()):
+            if(NightGroup.get_by_id(int(in_key))):
+                if(in_to_change=="contact"):
+                    instance = NightGroup.get_by_id(int(in_key))
+                    instance.contact = str(in_new_text)
+                    instance.put()
+                elif(in_to_change=="time"):
+                    instance = NightGroup.get_by_id(int(in_key))
+                    instance.time = str(in_new_text)
+                    instance.put()
+                elif(in_to_change=="route"):
+                    instance = NightGroup.get_by_id(int(in_key))
+                    instance.route = str(in_new_text)
+                    instance.put()   
+                elif(in_to_change=="num_of_people"):
+                    instance = NightGroup.get_by_id(int(in_key))
+                    instance.number_of_people = str(in_new_text)
+                    instance.put()
+            else:
+                some_string = "Please try again."
+        else:
+            some_string = "Please try again."
+            
+        the_dict = {
+            "some_string": some_string
+        }
+        # instance = NightGroup.get_by_id(int(in_key))
+        # print("THIS IS AN INSTANCE")
+        # print(instance)
+        # print(in_key)
+        # instance.in_to_change=in_new_text
+        # instance.put()
+        # print(instance)
         
         get_editing_template = the_jinja_env.get_template("templates/doing_edit.html")
-        self.response.write(get_editing_template.render())
+        self.response.write(get_editing_template.render(the_dict))
         
 ###########################################
         

@@ -49,6 +49,12 @@ img{
   width: 100px;
   height: 100px;
 }
+form
+{
+  border-radius: 5px;
+  background-color: rgba(255, 253, 217, 0.6);
+  padding: 20px;
+}
 </style>
 <html>
   <head>
@@ -65,16 +71,19 @@ img{
     <form method=POST action="/make_group">
       <fieldset class="contactInfo">
         <legend> Input Group Information </legend>
-          Contact Info: <input type="text" name="input_contact">
+          Contact Information <br>
+          <textarea rows="4" cols="50" placeholder="example@gmail.com" type="text" name="input_contact"></textarea>
           <br>
-          Input Time: <input type="text" name="input_time">
+          Input Schedule <br>
+          <textarea rows="1" cols="100" type="text" name="input_time"></textarea>
           <br>
-          Input Route: <input type="text" name="input_route">
+          Input Route <br>
+          <textarea rows="1" cols="100" type="text" name="input_route"></textarea>
           <br>
-          Number of People: <input type="text" name="input_number_of_people">
+          Number of People <br> 
+          <textarea rows="1" cols="100" type="text" name="input_number_of_people"></textarea>
       </fieldset>
     <input class = "button1" type ="submit" value="Go!">
 </form>
   </body>
 </html>
-
